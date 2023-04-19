@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\Booking;
 use App\Models\Discount;
+use App\Models\Feedback;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -18,6 +19,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+
+
+
          $user = User::factory()->create([
             'first_name' => 'meilchu',
             'last_name' => 'meilchu',
@@ -45,11 +50,19 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Discount::create([
-            'discount_1' => 10,
+            'discount_1' => 0,
             'discount_2' => 15,
             'discount_3' => 20,
+            'label_1' => 'Complementary Food and Drinks on all booking',
+            'label_2' => 'Free Breakfast on Weekend bookings',
+            'label_3' => 'discount for more than 7days booking',
             'price' => 3500,
-        ]);
+        ]); 
+
+        Feedback::create([
+            'user_id' => 1,
+            'feedback' => 'I want milk in the morning',
+        ]); 
 
         
        

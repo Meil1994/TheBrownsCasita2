@@ -16,6 +16,9 @@ return new class extends Migration
             $table->decimal('discount_1')->default(0);
             $table->decimal('discount_2')->default(0);
             $table->decimal('discount_3')->default(0);
+            $table->string('label_1');
+            $table->string('label_2');
+            $table->string('label_3');
             $table->decimal('price')->default(0);
             $table->timestamps();
         });

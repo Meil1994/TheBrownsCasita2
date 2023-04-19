@@ -12,13 +12,15 @@
     <script src="https://kit.fontawesome.com/12e77b0106.js" crossorigin="anonymous"></script>
 
     <script src="//unpkg.com/alpinejs" defer></script>
+  
+    
 
 </head>
 <body>
 
     <x-flash-message/>
 
-    <div class="block 4m:grid 4m:grid-cols-4 divide-x">
+    <div class="block 4m:grid 4m:grid-cols-4 divide-x h-screen">
         <div class="bg-slate-900 text-white 4m:block overflow-auto">
             <div class="flex p-2 sms:p-10 pt-10 pb-10 4m:justify-center llll:justify-normal justify-between">
                 <div class="flex items-center">
@@ -47,7 +49,7 @@
                                 <li class="flex p-2 hover:bg-slate-700"><a href="/my/profile/edit" class="flex"><x-zondicon-cog class="w-4"/><p class="font-light ml-2">Edit Profile</p></a></li>
                                 <li class="flex p-2 hover:bg-slate-700"><a href="/message" class="flex"><x-zondicon-conversation class="w-4"/><p class="font-light ml-1">Message</p></a></li>
                                 <li class="flex p-2 hover:bg-slate-700"><a href="" class="flex"><x-zondicon-thumbs-up class="w-4"/><p class="font-light ml-1">Feedback</p></a></li>
-                                <li class="flex p-2 hover:bg-slate-700 mt-6"><a href="" class="flex"><x-zondicon-store-front class="w-4"/><p class="font-light ml-1">Home</p></a></li>
+                                <li class="flex p-2 hover:bg-slate-700 mt-6"><a href="/" class="flex"><x-zondicon-store-front class="w-4"/><p class="font-light ml-1">Home</p></a></li>
                                 <form class="inline" method="POST" action="/logout">
                                     @csrf
                                     <button type="submit" class="flex ml-3" onclick="return confirm('You are trying to logout. Do you want to continue?')"> 
@@ -103,7 +105,6 @@
         }
         });
     </script>
-
 </body>
 </html>
 

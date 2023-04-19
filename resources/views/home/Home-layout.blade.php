@@ -61,56 +61,66 @@
   <x-flash-message/>
 
   <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
+        var events = @json($events);
+
+        var bookedDates = [];
+        for (var i = 0; i < events.length; i++) {
+            var startDate = moment(events[i].start);
+            var endDate = moment(events[i].end);
+            var currentDate = startDate.clone();
+            while (currentDate.isSameOrBefore(endDate)) {
+                bookedDates.push(currentDate.format('YYYY-MM-DD'));
+                currentDate.add(1, 'days');
+            }
+        }
+
         $('#checkin').datepicker({
             dateFormat: 'yy-mm-dd',
-            minDate: new Date(), 
+            minDate: new Date(),
             onSelect: function(date) {
                 $('#checkout').datepicker('option', 'minDate', date);
                 $('#checkin-datepicker').hide();
             }
         });
-        
+
         $('#checkout').datepicker({
             dateFormat: 'yy-mm-dd',
-            minDate: '+1d', 
+            minDate: '+1d',
             onSelect: function(date) {
                 $('#checkin').datepicker('option', 'maxDate', date);
                 $('#checkout-datepicker').hide();
             }
         });
-    
+
         $('#checkin').on('click', function() {
             $('#checkin-datepicker').show();
         });
-    
+
         $('#checkout').on('click', function() {
             $('#checkout-datepicker').show();
         });
-    
+
         $(document).on('click', function(event) {
             if (!$(event.target).closest('.datepicker').length) {
                 $('.datepicker').hide();
             }
         });
-    
+
         $('#calendar').fullCalendar({
-            header: {
-                left: 'prev, next',
-                right: 'title'
-            },
-            viewRender: function(view, element) {
-                var today = moment();
-                var prevButton = $(".fc-prev-button");
-                if (view.start.isBefore(today, 'day')) {
-                    prevButton.prop('disabled', true);
-                } else {
-                    prevButton.prop('disabled', false);
-                }
-            }
+            // ...
         });
+
+        if (bookedDates.length > 0) {
+            var minDate = moment(bookedDates[bookedDates.length - 1]).add(1, 'days').toDate();
+            var maxDate = moment(bookedDates[0]).subtract(1, 'days').toDate();
+            $('#checkin').datepicker('option', 'minDate', minDate);
+            $('#checkout').datepicker('option', 'minDate', maxDate);
+        }
     });
+
     </script>
+    
 
     <script>
         const profileButton = document.querySelector('#profileButton');
@@ -128,6 +138,7 @@
             profileMenu.classList.add('hidden');
         }
         });
+        
     </script>
 
 

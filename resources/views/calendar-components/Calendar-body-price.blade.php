@@ -7,7 +7,9 @@
             Price starts at
         </h1>
         <p class="text-2xl mt-4">
-            PHP 3500/<span class="text-sm font-light">DAY</span>
+            @foreach ($discounts as $discount)
+               PHP {{ $discount->price }}
+            @endforeach /<span class="text-sm font-light">DAY</span>
         </p>
         <ul class="font-light mt-2 list-disc pl-3">
             <li>Free use all available facilities.</li>

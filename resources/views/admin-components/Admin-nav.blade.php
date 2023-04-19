@@ -19,10 +19,12 @@
                         <li class="flex p-2 hover:bg-slate-700"><a href="/admin" class="flex"><x-zondicon-view-tile class="w-4"/><p class="font-light ml-2">Admin</p></a></li>
                         <li class="flex p-2 hover:bg-slate-700"><a href="" class="flex"><x-zondicon-store-front class="w-4"/><p class="font-light ml-2">Client</p></a></li>
                         <li class="flex p-2 hover:bg-slate-700"><a href="/totaluser" class="flex"><x-zondicon-user-group class="w-4"/><p class="font-light ml-2">Profiles</p></a></li>
-                        <li class="flex p-2 hover:bg-slate-700"><a href="/totalsales" class="flex"><x-zondicon-shopping-cart class="w-4"/><p class="font-light ml-1">Sales</p></a></li>
                         <li class="flex p-2 hover:bg-slate-700"><a href="/booking" class="flex"><x-zondicon-book-reference class="w-4"/><p class="font-light ml-1">Bookings</p></a></li>
                         <li class="flex p-2 hover:bg-slate-700"><a href="" class="flex"><x-zondicon-conversation class="w-4"/><p class="font-light ml-1">Messages</p></a></li>
-                        <li class="flex p-2 hover:bg-slate-700"><a href="" class="flex"><x-zondicon-thumbs-up class="w-4"/><p class="font-light ml-1">Feedback</p></a></li>
+                        <li class="flex p-2 hover:bg-slate-700"><a href="/customer/feedback" class="flex"><x-zondicon-thumbs-up class="w-4"/><p class="font-light ml-1">Feedback</p></a></li>
+                        <li class="flex p-2 hover:bg-slate-700"><a href="/pricing" class="flex"><x-zondicon-tag class="w-4"/><p class="font-light ml-1">Pricing</p></a></li>
+                        
+                        
                         <li class="flex p-2 mt-5 hover:bg-slate-700"><a href="" class="flex"><x-zondicon-subdirectory-right class="w-4"/><p class="font-light ml-1">Logout</p></a></li>
                     </ul>
                 </div
@@ -37,11 +39,12 @@
         <li class="p-2 mb-2 hover:bg-slate-700"><a href="/admin" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-view-tile class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Admin Dashboard</p></a></li>
         <li class="p-2 mb-2 hover:bg-slate-700"><a href="" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-store-front class="w-4 llll:mr-6 llll:ml-4"/><p class="hidden llll:block font-light">Client Dashboard</p></a></li>
         <li class="p-2 mb-2 hover:bg-slate-700"><a href="/totaluser" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-user-group class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Client Profiles</p></a></li>
-        <li class="p-2 mb-2 hover:bg-slate-700"><a href="/totalsales" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-shopping-cart class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Total Sales</p></a></li>
         <li class="p-2 mb-2 hover:bg-slate-700"><a href="/booking" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-book-reference class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Bookings</p></a></li>
         <li class="p-2 mb-2 hover:bg-slate-700"><a href="" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-conversation class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Messages</p></a></li>
-        <li class="p-2 mb-2 hover:bg-slate-700"><a href="" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-thumbs-up class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Feedback</p></a></li>
+        <li class="p-2 mb-2 hover:bg-slate-700"><a href="/customer/feedback" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-thumbs-up class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Feedback</p></a></li>
+        <li class="p-2 mb-2 hover:bg-slate-700"><a href="/pricing" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-tag class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Pricing</p></a></li>
     
+
         <li class="p-2 mb-2 hover:bg-slate-700 mt-20"><a href="" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-subdirectory-right class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Logout</p></a></li>
    
     </ul>

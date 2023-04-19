@@ -16,5 +16,24 @@
 <body>
     @include('contact.Contact-header')
     @include('contact.Contact-body')
+
+    <script>
+        const profileButton = document.querySelector('#profileButton');
+        const profileMenu = document.querySelector('#profileMenu');
+    
+        profileButton.addEventListener('click', () => {
+        profileMenu.classList.toggle('hidden');
+        });
+    
+        document.addEventListener('click', (event) => {
+        const isClickInsideButton = profileMenu.contains(event.target);
+        const isClickOnProfile = event.target.closest('#profileButton');
+    
+        if (!isClickOnProfile && !isClickInsideButton) {
+            profileMenu.classList.add('hidden');
+        }
+        });
+        
+    </script>
 </body>
 </html>

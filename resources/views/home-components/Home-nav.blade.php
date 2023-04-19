@@ -1,4 +1,4 @@
-<nav class="grid ms:grid-cols-3 divide-x h-200 xs:grid-cols-2 sm:grid-cols-1">
+<nav class="grid ms:grid-cols-3 divide-x h-200 xs:grid-cols-2 sm:grid-cols-1 pt-3">
     <div class="border-none sm:hidden ms:block">
         <ul class="flex justify-evenly mt-60 text-lg tracking-wide">
             <li class="text-white cursor-pointer hover:underline underline-offset-10"><a href="/">Home</a></li>
@@ -60,11 +60,11 @@
                                 </li>
                             
                                 @else
-                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a href="/facility">Facilities</a></li>
-                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2">Contact Us</li>
-                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a href="/calendar">Start Booking</a></li>
-                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a href="/login">Login</a></li>
-                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a href="/register">Register</a></li>
+                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/facility"><x-zondicon-library class="w-3 mr-2"/>Facilities</a></li> 
+                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/contact"><x-zondicon-dial-pad class="w-3 mr-2"/>Contact Us</a></li> 
+                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/calendar"><x-zondicon-mouse class="w-3 mr-2"/>Start Booking</a></li>
+                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/register"><x-zondicon-user-add class="w-3 mr-2"/>Register</a></li>
+                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/login"><x-zondicon-subdirectory-right class="w-3 mr-2"/>Login</a></li>
                             @endauth
                         </ul>
                     </div
@@ -94,8 +94,8 @@
                             </li>
 
                             @else
-                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a href="/login">Login</a></li>
-                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a href="/register">Register</a></li>
+                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/register"><x-zondicon-user-add class="w-3 mr-2"/>Register</a></li>
+                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a class="flex" href="/login"><x-zondicon-subdirectory-right class="w-3 mr-2"/>Login</a></li>
                         @endauth
                     
                     </ul>

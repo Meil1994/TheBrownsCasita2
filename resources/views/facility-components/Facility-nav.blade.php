@@ -1,4 +1,4 @@
-<nav class="grid ms:grid-cols-3 divide-x xs:grid-cols-2 sm:grid-cols-1">
+<nav class="grid ms:grid-cols-3 divide-x xs:grid-cols-2 sm:grid-cols-1 pt-3">
     <div class="border-none sm:hidden ms:block">
         <ul class="flex justify-evenly mt-60 text-lg">
             <li class="text-white cursor-pointer hover:underline underline-offset-10"><a href="/">Home</a></li>
@@ -89,8 +89,8 @@
                             </li>
 
                             @else
-                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a href="/login">Login</a></li>
-                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a href="/register">Register</a></li>
+                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/register"><x-zondicon-user-add class="w-3 mr-2"/>Register</a></li>
+                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a class="flex" href="/login"><x-zondicon-subdirectory-right class="w-3 mr-2"/>Login</a></li>
                         @endauth
                     
                     </ul>

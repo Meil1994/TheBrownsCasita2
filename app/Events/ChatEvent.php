@@ -10,19 +10,20 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class Chat implements ShouldBroadcast
+class ChatEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $first_name = '';
-    public $message = '';
 
     /**
      * Create a new event instance.
      */
-    public function __construct($first_name, $message)
+
+     public $message;
+
+
+    public function __construct($message)
     {
-        $this->first_name = $first_name;
-        $this->message = $message;
+        $this->$message = $message;
     }
 
     /**
@@ -33,11 +34,7 @@ class Chat implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new Channel('tbcChat'),
+            new PrivateChannel('channel-chat'),
         ];
-    }
-
-    public function broadcastAs(){
-        return 'chatting';
     }
 }

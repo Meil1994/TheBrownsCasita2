@@ -2,7 +2,7 @@
     @extends('profile.Profile-layout')
     @section('content')
 
-    <div class="p-2 pt-20 h-screen bg-slate-300">
+    <div class="p-2 pt-20 h-screen bg-slate-300 overflow-auto">
         <h1 class="text-center text-4xl text-zinc-700">My Bookings</h1>
         <hr class="w-50 ml-auto mr-auto mb-20 bg-slate-300 h-1"/>
         <div class="overflow-auto bg-white">

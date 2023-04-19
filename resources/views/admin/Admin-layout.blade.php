@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/12e77b0106.js" crossorigin="anonymous"></script>
    
     <script src="{{ asset('js/chart.js') }}"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body>
 
@@ -23,6 +24,8 @@
             @yield('content')
         </div>
     </div>
+
+    <x-flash-message/>
 
 </body>
 </html>

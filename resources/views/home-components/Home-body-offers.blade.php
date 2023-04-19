@@ -13,7 +13,14 @@
             <img class="w-100 h-300" src="{{asset('images/photo4.jpeg')}}" alt=""/>
             <div>
                 <p class="text-2xl mt-4 pl-2">
-                    Complementary Food and Drinks on all booking
+                    @foreach ($discounts as $discount)
+                        @if ($discount->discount_1 > 0)
+                            {{ number_format($discount->discount_1, 0) }}%
+                        @endif
+                        {{ $discount->label_1 }}
+                    @endforeach
+            
+            
                 </p>
                 <ul class="font-light mt-2 list-disc pl-4">
                     <li>Free use all available facilities.</li>
@@ -31,7 +38,12 @@
             <img class="w-100 h-300" src="{{asset('images/photo5.jpeg')}}" alt=""/>
             <div>
                 <p class="text-2xl mt-4 pl-2">
-                    Free Breakfast on Weekend bookings
+                    @foreach ($discounts as $discount)
+                        @if ($discount->discount_2 > 0)
+                            {{ number_format($discount->discount_2, 0) }}%
+                        @endif
+                        {{ $discount->label_2 }}
+                    @endforeach
                 </p>
                 <ul class="font-light mt-2 list-disc pl-4">
                     <li>Free use all available facilities.</li>
@@ -49,7 +61,12 @@
             <img class="w-100 h-300" src="{{asset('images/photo6.jpeg')}}" alt=""/>
             <div>
                 <p class="text-2xl mt-4 pl-2">
-                    10% discount for more than 7days booking
+                    @foreach ($discounts as $discount)
+                        @if ($discount->discount_3 > 0)
+                            {{ number_format($discount->discount_3, 0) }}%
+                        @endif
+                        {{ $discount->label_3 }}
+                    @endforeach
                 </p>
                 <ul class="font-light mt-2 list-disc pl-4">
                     <li>Free use all available facilities.</li>

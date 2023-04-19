@@ -74,7 +74,7 @@ class UserController extends Controller
             'last_name' => 'sometimes',
             'email' => 'sometimes',
             'password' => 'sometimes',
-            'logo' => 'sometimes|image|max:2048' // add validation rules for logo file
+            'logo' => 'sometimes|image|max:2048' 
         ]);
         $user->first_name = $validatedData['first_name'];
         $user->last_name = $validatedData['last_name'];

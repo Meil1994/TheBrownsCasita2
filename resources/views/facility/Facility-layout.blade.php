@@ -10,9 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400&display=swap" rel="stylesheet"> 
-
+    <script src="//unpkg.com/alpinejs" defer></script>
+    
 </head>
 <body>
+    <x-flash-message/>
     @include('facility.Facility-header')
     @include('facility.Facility-body')
     @include('facility.Facility-footer')
