@@ -3,7 +3,7 @@
         <div class="text-white border-none l:p-10 l:pt-0 l:pb-0 mt-10">
            <h1 class="text-2xl">Address</h1>
            <p class="mt-2 font-light">Brgy. Cebulano, Carmen, Davao del Norte</p>
-           <button class="mt-2 underline underline-offset-10 hover:text-indigo-500">Get Direction</button>
+           <button onclick="openMap()" class="mt-2 underline underline-offset-10 hover:text-indigo-500">Get Direction</button>
         </div>
     
         <div class="text-white border-none l:p-10 l:pt-0 l:pb-0 mt-10">
@@ -14,9 +14,9 @@
     
         <div class="text-white border-none l:p-10 l:pt-0 l:pb-0 mt-10">
             <h1 class="text-2xl">Social</h1>
-            <button class="mt-2 hover:text-indigo-500 font-light tracking-2">Facebook</button>
+            <a target="blank" href="https://www.facebook.com/thebrownscasita" class="mt-2 hover:text-indigo-500 font-light tracking-2">Facebook</a>
             <br/>
-            <button class="hover:text-indigo-500 font-light tracking-2">Instagram</button>
+            <a target="blank" href="https://www.instagram.com/thebrownscasita/" class="hover:text-indigo-500 font-light tracking-2">Instagram</a>
         </div>
 
 

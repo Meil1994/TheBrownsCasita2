@@ -31,6 +31,11 @@ Route::post('/feedbacks/calendar', [CalendarController::class, 'feedbackCalendar
 
 Route::get('/contact', [ContactController::class, 'contact']);
 
+Route::post('/message/contact', [ContactController::class, 'messageContact']);
+
+Route::post('/feedbacks/contact', [ContactController::class, 'feedbackContact'])->middleware('auth');
+
+
 
 
 Route::match(['get', 'post'], '/checkout', [CheckoutController::class, 'index'])->name('checkout')->middleware('auth');
@@ -43,15 +48,15 @@ Route::get('/booking/success', [CheckoutController::class, 'success'])->middlewa
 
 
 
-Route::get('/register', [UserController::class, 'register'])->middleware('guest');
+Route::get('/register', [UserController::class, 'register']);
 
 Route::post('/users', [UserController::class, 'store']);
 
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
-Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+Route::get('/login', [UserController::class, 'login'])->name('login');
 
-Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+Route::post('/users/authenticate', [UserController::class, 'authenticate'])->middleware('guest');
 
 Route::get('/my/profile', [UserController::class, 'manage'])->middleware('auth');
 
@@ -59,8 +64,14 @@ Route::get('/my/profile/edit', [UserController::class, 'editfile'])->middleware(
 
 Route::put('/my/profile/edit', [UserController::class, 'update'])->name('my.profile.update');
 
+Route::get('/my/profile/feedback', [UserController::class, 'profileFeedback'])->middleware('auth');
 
-Route::get('/message', [ChatController::class, 'messageUI']);
+Route::post('/feedbacks/profile', [UserController::class, 'feedbackProfile'])->middleware('auth');
+
+
+Route::get('/message', [ChatController::class, 'messageUI'])->middleware('auth');
+
+Route::post('/profile/message', [ChatController::class, 'messageProfile'])->middleware('auth');
 
 
 

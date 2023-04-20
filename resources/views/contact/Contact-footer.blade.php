@@ -21,7 +21,7 @@
     
         <form 
             method="POST" 
-            action="/feedbacks/facility"
+            action="/feedbacks/contact"
             class="text-white border-none l:p-10 l:pt-0 l:pb-0 pt-10 llll:pt-0">
             @csrf
 

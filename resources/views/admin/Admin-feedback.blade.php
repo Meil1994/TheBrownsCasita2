@@ -13,14 +13,14 @@
         </div>
         <div class="overflow-auto bg-white">
             <table class="w-100">
-             
+                @unless ($feedbacks->isEmpty())
                 <thead class="text-center bg-slate-900 text-white">
                     <tr class="h-10">
                         <th class="border border-white">User Id</th>
+                        <th class="border border-white">Created At</th>
                         <th class="border border-white">First Name</th>
                         <th class="border border-white">Last Name</th>
                         <th class="border border-white">Feedack</th>
-                        <th class="border border-white">Created At</th>
                     </tr>
                     
                 </thead>
@@ -28,13 +28,18 @@
                 <tbody class="text-center">
                     <tr>
                         <td class="border border-black p-2">{{ $feedback->user_id }}</td>
+                        <td class="border border-black">{{ $feedback->created_at }}</td>
                         <td class="border border-black p-2">{{ $feedback->user->first_name }}</td>
                         <td class="border border-black">{{ $feedback->user->last_name }}</td>
                         <td class="border border-black">{{ $feedback->feedback }}</td>
-                        <td class="border border-black">{{ $feedback->created_at }}</td>
                     </tr>
                 </tbody>
                 @endforeach
+                @else
+                <div class="bg-slate-300">
+                    <p class="text-red-500 text-xl">No Client Feedbacks Found</p>
+                </div>
+                @endunless
                     
             
             </table>

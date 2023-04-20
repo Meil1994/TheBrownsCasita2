@@ -12,7 +12,7 @@
         </div>
         <div class="overflow-auto bg-white">
             <table class="w-100">
-             
+                @unless ($users->isEmpty())
                 <thead class="text-center bg-slate-900 text-white">
                     <tr class="h-10">
                         <th class="border border-white">User Id</th>
@@ -36,6 +36,11 @@
                     </tr>
                 </tbody>
                 @endforeach
+                @else
+                <div class="bg-slate-300">
+                    <p class="text-red-500 text-xl">No Client Profiles Found</p>
+                </div>
+                @endunless
                     
             
             </table>

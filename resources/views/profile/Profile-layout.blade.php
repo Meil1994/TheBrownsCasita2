@@ -48,14 +48,16 @@
                                 <li class="flex p-2 hover:bg-slate-700"><a href="/my/profile" class="flex"><x-zondicon-book-reference class="w-4"/><p class="font-light ml-1">My Bookings</p></a></li>
                                 <li class="flex p-2 hover:bg-slate-700"><a href="/my/profile/edit" class="flex"><x-zondicon-cog class="w-4"/><p class="font-light ml-2">Edit Profile</p></a></li>
                                 <li class="flex p-2 hover:bg-slate-700"><a href="/message" class="flex"><x-zondicon-conversation class="w-4"/><p class="font-light ml-1">Message</p></a></li>
-                                <li class="flex p-2 hover:bg-slate-700"><a href="" class="flex"><x-zondicon-thumbs-up class="w-4"/><p class="font-light ml-1">Feedback</p></a></li>
+                                <li class="flex p-2 hover:bg-slate-700"><a href="/my/profile/feedback" class="flex"><x-zondicon-thumbs-up class="w-4"/><p class="font-light ml-1">Feedback</p></a></li>
                                 <li class="flex p-2 hover:bg-slate-700 mt-6"><a href="/" class="flex"><x-zondicon-store-front class="w-4"/><p class="font-light ml-1">Home</p></a></li>
+                                
                                 <form class="inline" method="POST" action="/logout">
                                     @csrf
                                     <button type="submit" class="flex ml-3" onclick="return confirm('You are trying to logout. Do you want to continue?')"> 
                                         <x-zondicon-arrow-thick-right class="w-3 mr-2 mt-1"/>Logout
                                     </button>
                                 </form>
+
                             </ul>
                         </div
                     </div>
@@ -69,11 +71,11 @@
                 <li class="p-2 mb-2 hover:bg-slate-700"><a href="/my/profile" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-book-reference class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">My Bookings</p></a></li>
                 <li class="p-2 mb-2 hover:bg-slate-700"><a href="/my/profile/edit" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-cog class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Edit Profile</p></a></li>
                 <li class="p-2 mb-2 hover:bg-slate-700"><a href="/message" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-conversation class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Message</p></a></li>
-                <li class="p-2 mb-2 hover:bg-slate-700"><a href="" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-thumbs-up class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Feedback</p></a></li>
+                <li class="p-2 mb-2 hover:bg-slate-700"><a href="/my/profile/feedback" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-thumbs-up class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Feedback</p></a></li>
                 <li class="p-2 mb-2 hover:bg-slate-700 mt-20"><a href="/" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-store-front class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Home</p></a></li>
                 <form class="inline" method="POST" action="/logout">
                     @csrf
-                    <button type="submit" onclick="return confirm('You are trying to logout. Do you want to continue?')" class="p-2 mb-2 hover:bg-slate-700 cursor-pointer"><a class="flex text-xl justify-center llll:justify-normal"><x-zondicon-arrow-thick-right class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Logout</p></a></button>
+                    <button type="submit" onclick="return confirm('You are trying to logout. Do you want to continue?')" class="p-2 mb-2 hover:bg-slate-700 cursor-pointer w-100"><a class="flex text-xl justify-center llll:justify-normal"><x-zondicon-arrow-thick-right class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Logout</p></a></button>
                 </form>
         
             </ul>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
@@ -92,11 +93,26 @@ class UserController extends Controller
             $user->logo = $logoPath;
         }
         $user->save();
-        return redirect('/my/profile')->with('message', 'Profile updated successfully.');
+        return redirect('/my/profile/edit')->with('message', 'Profile updated successfully.');
     }
 
     public function messages(){
         return view('profile.Message-layout');
+    }
+
+    public function profileFeedback(){
+        return view('profile.Feedback-layout');
+    }
+
+    public function feedbackProfile(Request $request) {
+        $formFields = $request->validate([
+            'feedback' => 'required',
+        ]);
+
+        $formFields['user_id'] = auth()->id();
+
+        Feedback::create($formFields);
+        return redirect('/my/profile/feedback')->with('message', 'Thank you for your feedback!');
     }
     
 

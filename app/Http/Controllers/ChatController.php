@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Pusher\Pusher;
+use App\Models\Message;
 use App\Models\ChatRoom;
 use App\Events\ChatEvent;
 use Illuminate\Http\Request;
 use App\Events\NewChatMessage;
 use Illuminate\Support\Facades\Auth;
-use App\Models\ChatMessages; // fixed import
 
 class ChatController extends Controller
 {
@@ -17,17 +17,13 @@ class ChatController extends Controller
     }
 
 
-   public function rooms(Request $request){
-    $request->validate([
-        'name' => 'required',
-        'message' => 'required'
-    ]);
+    public function messageProfile(Request $request) {
+        $formFields = $request->validate([
+            'email' => 'required',
+            'message' => 'required',
+        ]);
 
-    $message = [
-        'name' =>$request->name,
-        'message' =>$request->message,
-    ];
-
-    ChatEvent::dispatch($message);
-   }
+        Message::create($formFields);
+        return redirect('/message')->with('message', 'Thank you for sending us a message! We will get back to you via email shortly.');
+    }
 }

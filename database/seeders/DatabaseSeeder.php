@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Booking;
+use App\Models\Message;
 use App\Models\Discount;
 use App\Models\Feedback;
 use Illuminate\Database\Seeder;
@@ -23,11 +24,11 @@ class DatabaseSeeder extends Seeder
 
 
 
-         $user = User::factory()->create([
+        $user = User::factory()->create([
             'first_name' => 'meilchu',
             'last_name' => 'meilchu',
-            'email' =>'meilchucabaluna1994@gmail.com'
-        ]);
+            'email' =>'meilchucabaluna19945@gmail.com'
+        ]); 
 
         Booking::create([
             'user_id' => 1,
@@ -63,6 +64,17 @@ class DatabaseSeeder extends Seeder
             'user_id' => 1,
             'feedback' => 'I want milk in the morning',
         ]); 
+
+        Message::create([
+            'email' =>'meilchucabaluna19945@gmail.com',
+            'message' => 'I want milk in the morning'
+        ]);
+
+        Admin::create([
+            'username' => 'meil1994',
+            'email' => 'meilchucabaluna1994@gmail.com',
+            'password' => Hash::make('password')
+        ]);
 
         
        

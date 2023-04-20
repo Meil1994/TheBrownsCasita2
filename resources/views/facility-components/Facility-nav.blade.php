@@ -10,8 +10,8 @@
     </div>
     <div class="border-none">
         <ul class="flex justify-between ms:justify-evenly text-lg sm:pl-6">
-            <li class="text-slate-300 cursor-pointer hover:text-white mt-60"><i class="fa-brands fa-facebook"></i></li>
-            <li class="text-slate-300 cursor-pointer hover:text-white mt-60"><i class="fa-brands fa-instagram"></i></li>
+            <li class="text-slate-300 cursor-pointer hover:text-white mt-60"><a target="blank" href="https://www.facebook.com/search/top?q=the%20browns%20casita"><i class="fa-brands fa-facebook"></i></a></li>
+            <li class="text-slate-300 cursor-pointer hover:text-white mt-60"><a target="blank" href="https://www.instagram.com/thebrownscasita/"><i class="fa-brands fa-instagram"></i></a></li>
             <li id="profileButton" class="mt-10m hidden ms:block">
                 @if (Auth::check() && Auth::user()->logo)
                     <img class="rounded-full bg-white h-8 w-8 object-fit-cover" src="{{ asset('storage/' . Auth::user()->logo) }}" alt="Logo" class="logo"/>
@@ -27,7 +27,7 @@
                     </svg>
                   </button>
                 
-                <div id="menu" class="hidden absolute ml-8 mt-2 w-170 ms:hidden">
+                <div id="menu" class="hidden absolute ml-8 mt-2 w-200 ms:hidden">
                     <div class="navbar-menu-content">
                         <ul class="text-lg tracking-wide p-2 rounded-lg bg-white">
                             <li class="p-2 text-center">
@@ -46,9 +46,10 @@
                                 <hr/>
                             </li>
                             <li onclick="window.location.href='/calendar'" class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/calendar"><x-zondicon-book-reference class="w-3 mr-2"/>Book Now</a></li>
-                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/"><x-zondicon-store-front class="w-3 mr-2"/>Home</a></li>
-                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/contact"><x-zondicon-dial-pad class="w-3 mr-2"/>Contact Us</a></li>
-                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/my/profile"><x-zondicon-cog class="w-3 mr-2"/>Visit Profile</a></li>
+                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a class="flex" href="/"><x-zondicon-store-front class="w-3 mr-2"/>Home</a></li>
+                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a class="flex" href="/contact"><x-zondicon-dial-pad class="w-3 mr-2"/>Contact Us</a></li>
+                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a class="flex" href="/my/profile"><x-zondicon-cog class="w-3 mr-2"/>Visit Profile</a></li>
+                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a href="/my/profile" class="flex"><x-zondicon-book-reference class="w-3 mr-2"/>My Booking</a></li>
                             <form class="inline" method="POST" action="/logout">
                                 @csrf
                                 <button type="submit" class="flex mt-4" onclick="return confirm('You are trying to logout. Do you want to continue?')"> 
@@ -78,7 +79,8 @@
                                 </span>
                             </li>
                             <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a href="/my/profile" class="flex"><x-zondicon-cog class="w-3 mr-2"/>Visit Profile</a></li>
-                            
+                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 pl-2"><a href="/my/profile" class="flex"><x-zondicon-book-reference class="w-3 mr-2"/>My Booking</a></li>
+
                             <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-3">
                                 <form class="inline" method="POST" action="/logout">
                                     @csrf

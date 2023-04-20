@@ -11,8 +11,8 @@
     </div>
     <div class="border-none">
         <ul class="flex justify-between ms:justify-evenly text-lg sm:pl-6">
-            <li class="text-slate-300 cursor-pointer hover:text-white mt-60"><i class="fa-brands fa-facebook"></i></li>
-            <li class="text-slate-300 cursor-pointer hover:text-white mt-60"><i class="fa-brands fa-instagram"></i></li>
+            <li class="text-slate-300 cursor-pointer hover:text-white mt-60"><a target="blank" href="https://www.facebook.com/search/top?q=the%20browns%20casita"><i class="fa-brands fa-facebook"></i></a></li>
+            <li class="text-slate-300 cursor-pointer hover:text-white mt-60"><a target="blank" href="https://www.instagram.com/thebrownscasita/"><i class="fa-brands fa-instagram"></i></a></li>
             <li id="profileButton" class="mt-10m hidden ms:block">
                 @if (Auth::check() && Auth::user()->logo)
                     <img class="rounded-full bg-white h-8 w-8 object-fit-cover" src="{{ asset('storage/' . Auth::user()->logo) }}" alt="Logo" class="logo"/>
@@ -45,10 +45,10 @@
                                     </div>
                                 </li>
                                 <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a href="/my/profile" class="flex"><x-zondicon-cog class="w-3 mr-2"/>Visit Profile</a></li>
+                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a href="/my/profile" class="flex"><x-zondicon-book-reference class="w-3 mr-2"/>My Booking</a></li>
                                 <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a class="flex" href="/"><x-zondicon-store-front class="w-3 mr-2"/>Home</a></li>
                                 <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a class="flex" href="/facility"><x-zondicon-library class="w-3 mr-2"/>Facilities</a></li>
-                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a class="flex"><x-zondicon-dial-pad class="w-3 mr-2"/>Contact Us</a></li>
-                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a class="flex" href="/facility"><x-zondicon-mouse class="w-3 mr-2"/>Start Booking</a></li>
+                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a class="flex" href="/contact"><x-zondicon-dial-pad class="w-3 mr-2"/>Contact Us</a></li>
                                 
                                 <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-3">
                                     <form class="inline" method="POST" action="/logout">
@@ -62,7 +62,6 @@
                                 @else
                                 <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/facility"><x-zondicon-library class="w-3 mr-2"/>Facilities</a></li> 
                                 <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/contact"><x-zondicon-dial-pad class="w-3 mr-2"/>Contact Us</a></li> 
-                                <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/calendar"><x-zondicon-mouse class="w-3 mr-2"/>Start Booking</a></li>
                                 <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/register"><x-zondicon-user-add class="w-3 mr-2"/>Register</a></li>
                                 <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a class="flex" href="/login"><x-zondicon-subdirectory-right class="w-3 mr-2"/>Login</a></li>
                             @endauth
@@ -83,7 +82,7 @@
                                 </span>
                             </li>
                             <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2"><a href="/my/profile" class="flex"><x-zondicon-cog class="w-3 mr-2"/>Visit Profile</a></li>
-                            
+                            <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-0"><a href="/my/profile" class="flex"><x-zondicon-book-reference class="w-3 mr-2"/>My Booking</a></li>
                             <li class="text-black cursor-pointer hover:underline underline-offset-10 hover:bg-indigo-300 p-2 pt-3">
                                 <form class="inline" method="POST" action="/logout">
                                     @csrf

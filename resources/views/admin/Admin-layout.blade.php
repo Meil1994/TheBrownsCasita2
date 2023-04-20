@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400&display=swap" rel="stylesheet"> 
     <script src="https://kit.fontawesome.com/12e77b0106.js" crossorigin="anonymous"></script>
    
-    <script src="{{ asset('js/chart.js') }}"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body>
