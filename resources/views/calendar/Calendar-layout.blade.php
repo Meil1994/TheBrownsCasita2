@@ -140,5 +140,12 @@
     
 </script>
 
+<script>
+    function openMap() {
+      const url = "https://www.google.com/maps/place/The+Brown+Casitas/@7.3480622,125.5825326,13z/data=!4m10!1m2!2m1!1sthe+browns+casita+carmen+city+davao+del+norte!3m6!1s0x32f94fb743141dbb:0x4b085a742880497b!8m2!3d7.3480622!4d125.6587503!15sCi10aGUgYnJvd25zIGNhc2l0YSBjYXJtZW4gY2l0eSBkYXZhbyBkZWwgbm9ydGWSAQV2aWxsYeABAA!16s%2Fg%2F11t6mrzxsz";
+      window.open(url, "_blank");
+    }
+</script>
+
 </body>
 </html>

@@ -3,7 +3,7 @@
         <div class="text-white border-none l:p-10 l:pt-0 l:pb-0">
            <h1 class="text-2xl">Address</h1>
            <p class="mt-2 font-light">Brgy. Cebulano, Carmen, Davao del Norte</p>
-           <button class="mt-2 underline underline-offset-10 hover:text-indigo-500">Get Direction</button>
+           <button onclick="openMap()" class="mt-2 underline underline-offset-10 hover:text-indigo-500">Get Direction</button>
         </div>
     
         <div class="text-white border-none l:p-10 l:pt-0 l:pb-0">

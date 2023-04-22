@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
     public function register(){
-        return view('register.Register-layout');
+        return view('register.Register');
     }
 
     public function store(Request $request){
@@ -39,7 +39,7 @@ class UserController extends Controller
 
 
     public function login(){
-        return view('login.Login-layout');
+        return view('login.Login');
     }
 
 

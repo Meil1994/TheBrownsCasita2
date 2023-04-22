@@ -88,7 +88,7 @@
                 
 
                 <div class="text-center">
-                    <button type="submit" class="border hover:border-indigo-700 hover:bg-white hover:text-indigo-700 p-4 pt-1 pb-1 bg-indigo-700 text-white mt-10">Update</button>
+                    <button type="submit" class="border hover:border-indigo-700 hover:bg-white hover:text-indigo-700 p-4 pt-1 pb-1 bg-indigo-700 text-white mt-10 rounded-md">Update</button>
                 </div>
 
             </form>
