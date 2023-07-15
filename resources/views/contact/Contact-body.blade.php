@@ -1,4 +1,4 @@
-<div class="bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('images/photo2.jpeg') }}');">
+<div class="bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('images/patio.jpg') }}');">
     <div class="bg-gradient-to-b from-stone-900/90 to-slate-600/50 pb-20">
         <div class="text-center tracking-2 text-white border-none">
             <h1 class="text-4xl pt-28 a:pt-30">Contact</h1>
@@ -11,12 +11,12 @@
         @csrf
 
         <div>
-            <label for="email" class="text-2xl">Email</label>
+            <label for="email" class="text-xl text-slate-600"><i class="fa-solid fa-envelope"></i> Email</label>
             <input
                 required 
                 type="text" 
                 name="email"
-                class="border border-slate-700 w-100 h-10 rounded-md"
+                class="border border-slate-500 w-100 h-10 rounded-md"
             />
             @error('email')
                 <p class="text-red-500">{{$message}}</p>
@@ -25,13 +25,12 @@
         
 
         <div>
-            <label for="message" class="text-2xl">Message</label>
+            <label for="message" class="text-xl text-slate-600"><i class="fa-solid fa-message"></i> Message</label>
             <textarea
                 required 
                 type="text" 
                 name="message" 
-                class="border border-slate-700 w-100 rounded-md h-40">
-            </textarea>
+                class="border border-slate-500 w-100 rounded-md h-40 p-2"></textarea>
             @error('message')
                 <p class="text-red-500">{{$message}}</p>
             @enderror

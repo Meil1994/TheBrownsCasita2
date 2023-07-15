@@ -22,4 +22,5 @@ class FacilityController extends Controller
         Feedback::create($formFields);
         return redirect('/facility')->with('message', 'Thank you for your feedback!');
     }
+
 }

@@ -1,4 +1,4 @@
 <div>
-    @include('calendar-components.Calendar-header-nav')
-    @include('calendar-components.Calendar-header-calendar')
+    @include('checkout.Nav')
+    @include('calendar.Calendar-header-calendar')
 </div>

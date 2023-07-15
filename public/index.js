@@ -1,17 +1,15 @@
-
-        const burger = document.querySelector('#burger');
+const burger = document.querySelector('#burger');
         const menu = document.querySelector('#menu');
+        const close = document.querySelector('#close');
 
         burger.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
+            menu.classList.remove('hidden');
+            menu.classList.remove('slide-exit');
+            menu.classList.add('slide-enter');
         });
 
-        document.addEventListener('click', (event) => {
-        const isClickInsideMenu = menu.contains(event.target);
-        const isClickOnBurger = event.target.closest('#burger');
-
-        if (!isClickInsideMenu && !isClickOnBurger) {
-            menu.classList.add('hidden');
-        }
+        close.addEventListener('click', () => {
+            menu.classList.remove('slide-enter');
+            menu.classList.add('slide-exit');
         });
     

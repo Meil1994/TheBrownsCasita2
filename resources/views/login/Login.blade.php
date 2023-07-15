@@ -6,30 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     <title>TBC Facilities</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400&display=swap" rel="stylesheet"> 
-
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    /><style>
+        body {
+      font-family: "Work Sans", sans-serif;
+    }
+    </style>
 </head>
 <body>
+    <x-flash-message/>
+    @include('components.Nav')
 
-    <form method="POST" action="/users/authenticate" class="p-2 2m:pl-10 2m:pr-10 mmmm:pr-20 mmmm:pl-20 llll:pl-48 llll:pr-48 pt-0 pb-0 bg-gradient-to-b from-stone-900/90 to-slate-600/50 h-screen">
+    <form method="POST" action="/users/authenticate" class="p-2 2m:pl-10 2m:pr-10 mmmm:pr-20 mmmm:pl-20 llll:pl-48 llll:pr-48 pt-0 pb-28 bg-gradient-to-b from-stone-900/90 to-slate-600/50">
         @csrf
     
         <div class=" ml-auto mr-auto pt-20">
 
             <div class="shadow-md shadow-black bg-white rounded-md p-4 llll:w-50 llll:ml-auto llll:mr-auto">
-                
-                <div class="w-100 ml-auto mr-auto">
-                    <img class="mb-4 rounded-full h-12 border border-black" src="{{asset('images/logo.jpeg')}}" alt="" class="logo"/>
-                </div>
 
                 <div class="mb-4">
                     <label for="email" class="text-lg"
-                        >Email</label
+                        > <i class="fa-solid fa-envelope"></i> Email</label
                     >
                     <input
+                        placeholder="email@gmail.com"
                         type="email"
                         class="rounded p-2 w-100 border border-slate-500"
                         name="email"
@@ -45,12 +51,13 @@
                         for="password"
                         class="inline-block text-lg"
                     >
-                        Password
+                    <i class="fa-solid fa-unlock"></i> Password
                     </label>
                     <input
                         type="password"
                         class="rounded p-2 w-100 border border-slate-500"
                         name="password"
+                        placeholder="Password1234"
                     />
                     @error('password')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -73,6 +80,12 @@
                             >Register</a
                         >
                     </p>
+
+                    <p>
+                        <a href="/reset" class="register text-blue-600 underline underline-offset-2 text-sm"
+                            >Reset Password</a
+                        >
+                    </p>
                 </div>
 
                 
@@ -80,12 +93,10 @@
 
             </div>   
         </div>
-        <div class="ml-auto mr-auto mt-10 llll:w-50">
-            <a class="shadow-md shadow-slate-100 hover:shadow-md p-5 h-12 pt-2 pb-2 bg-red-600 hover:bg-white hover:text-black hover:shadow-black text-white rounded-md" href="/">Home</a>   
-             
-        </div>
         
     </form>
+
+    @include('components.Footer')
     
     <script src="https://kit.fontawesome.com/12e77b0106.js" crossorigin="anonymous"></script>
    

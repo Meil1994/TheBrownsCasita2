@@ -73,7 +73,11 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'first_name' => 'sometimes',
             'last_name' => 'sometimes',
-            'email' => 'sometimes',
+            'email' => [
+                'sometimes',
+                'email',
+                Rule::unique('users', 'email')->ignore($user->id),
+            ],
             'password' => 'sometimes',
             'logo' => 'sometimes|image|max:2048' 
         ]);
@@ -114,6 +118,7 @@ class UserController extends Controller
         Feedback::create($formFields);
         return redirect('/my/profile/feedback')->with('message', 'Thank you for your feedback!');
     }
+
     
 
 

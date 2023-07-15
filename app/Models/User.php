@@ -3,9 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\User;
 use App\Models\Booking;
+use App\Models\Payment;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -44,7 +47,21 @@ class User extends Authenticatable
         
     ];
 
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
+    public static function getEmailSingle($email)
+    {
+        return User::where('email', $email)->first();
+    }
+
+    public static function getTokenSingle($remember_token)
+    {
+        return User::where('remember_token', $remember_token)->first();
+    }
+
     public function booking(){
-        return $this->hasMany(Booking::class, 'user_id');
+        return $this->hasMany(Payment::class, 'user_id');
     }
 }

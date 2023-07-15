@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('logo')->nullable();
+            $table->string('remember_token')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

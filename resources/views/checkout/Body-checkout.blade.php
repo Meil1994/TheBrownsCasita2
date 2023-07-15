@@ -1,15 +1,12 @@
 @foreach ($discounts as $discount)
     <form 
-        method="POST" 
-        action="/bookings"
-        class="bg-gradient-to-b from-stone-900/90 to-slate-600/50">
+        id="form1"
+        action="{{route('payment')}}" method="post"
+        class="bg-gradient-to-b from-stone-900/90 to-slate-600/50 pt-10">
     @csrf
-        <div class="pt-10 mm:pl-10 pl-2 mx:pl-28 mmm:pl-20 llll:pl-40 5m:pl-48">
-            <a class="shadow-md shadow-slate-100 hover:shadow-md mm:ml-3 p-5 pt-2 pb-2 bg-red-600 hover:bg-white hover:text-black hover:shadow-black text-white rounded-md" href="/" onclick="return confirm('All the data in the fields will be remove.Do you want to continue?')">Home</a>   
-        </div>
-        <div class="mm:p-10 mmm:p-20 mmm:pt-10 llll:p-40 llll:pt-10 5m:p-48 5m:pt-10 mx:p-28 mx:pt-10 pt-10 5m:grid grid-cols-2 divide-x">
-            <div class="border-none">
-                <div class="p-2 mm:p-2 mm:pb-5 5m:mt-4 text-white">
+        <div class="mm:p-10 mmm:p-20 mmm:pt-10 mmm:pb-10 llll:p-40 llll:pt-10 llll:pb-10 5m:p-48 5m:pt-10 5m:pb-10 mx:p-28 mx:pt-10 pt-10 5m:grid grid-cols-2 divide-x">
+            <div class="border-none p-2">
+                <div class="ring-2 ring-white p-2 pt-4 pb-4 2m:p-10 text-white">
                     <div>
                         <h1 class="text-xl mb-2 underline underline-offset-8">Booking Details</h1>   
                     </div>
@@ -17,7 +14,7 @@
                     <div class="form-group mt-12 flex justify-between items-center">
                         <label for="checkin">Check-in</label>
                         <input 
-                            required 
+                            readonly
                             class="text-black border border-gray-400 w-28 mm:w-32 m2m:w-60 h-8 text-center rounded-md mr-3" 
                             type="text" 
                             id="checkin" 
@@ -32,7 +29,7 @@
                     <div class="form-group mt-3 flex justify-between items-center">
                         <label for="checkout">Check-out</label>
                         <input 
-                            required 
+                            readonly
                             class="text-black border border-gray-400 w-28 mm:w-32 m2m:w-60 h-8 text-center rounded-md mr-3" 
                             type="text" 
                             id="checkout" 
@@ -63,14 +60,14 @@
                         <label class="">Price per Day</label>
                         <div class="text-black border border-gray-400 w-28 mm:w-32 m2m:w-60 h-8 rounded-md mr-3 flex justify-between items-center bg-white">
                             <span class="absolute ml-2">₱</span>
-                            <input class="w-100 bg-transparent text-center pl-1 m2m:pl-3" id="pricePerDay" type="number" value="{{ $discount->price }}" readonly />
+                            <input class="w-100 border-none bg-transparent text-center pl-1 m2m:pl-3" id="pricePerDay" type="number" value="{{ $discount->price }}" readonly />
                         </div>
                     </div>
 
                     <div class="form-group mt-3 flex justify-between items-center">
                         <label class="" for="guests">Guest</label>
                         <input 
-                            required 
+                            readonly
                             class="text-black border border-gray-400 w-28 mm:w-32 m2m:w-60 h-8 text-center rounded-md mr-3" 
                             type="number" 
                             id="guests" 
@@ -85,16 +82,20 @@
 
                     <div class="form-group mt-3 flex justify-between items-center">
                         <label class="">Discount</label>
-                        <select 
-                            class="text-black text-center bg-white border border-gray-400 rounded-md py-1 px-2 w-28 mm:w-32 m2m:w-60 mr-3" 
-                            name="discount" 
-                            id="discount"
-                        >
-                            <option style="background: red;" value="0">0%</option>
-                            <option value="5">{{ $discount->discount_1 }}%</option>
-                            <option value="10">{{ $discount->discount_2 }}%</option>
-                            <option value="15">{{ $discount->discount_3 }}%</option>
-                        </select>
+                        @if ($discount->discount_1 > 0 || $discount->discount_2 > 0 || $discount->discount_3 > 0)
+                            <select class="text-black text-center bg-white border border-gray-400 rounded-md py-1 px-2 w-28 mm:w-32 m2m:w-60 mr-3" name="discount" id="discount">
+                                <option>0</option>
+                                @if ($discount->discount_1 > 0)
+                                    <option>{{ $discount->discount_1 }}%</option>
+                                @endif
+                                @if ($discount->discount_2 > 0)
+                                    <option>{{ $discount->discount_2 }}%</option>
+                                @endif
+                                @if ($discount->discount_3 > 0)
+                                    <option>{{ $discount->discount_3 }}%</option>
+                                @endif
+                            </select>
+                        @endif
                         @error('discount')
                             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
@@ -104,7 +105,7 @@
                         <label>Add a booking note</label>
                         <br/>
                         <textarea 
-                            class="text-black w-100 mr-3 rounded-md h-80"
+                            class="text-black w-100 mr-3 rounded-md h-10"
                             name="note"
                         ></textarea>
                         @error('note')
@@ -117,57 +118,59 @@
 
 
             <div class="p-2 border-none">
-                <div class="p-5 shadow-md shadow-black bg-white">
+                <div class="p-10 pt-0">
 
-                    <div class="flex justify-between">
-                        <h1 class="text-xl mb-2 underline underline-offset-8">Payment Details</h1>
-                        <img class="w-14 rounded-full border border-black mb-3" src="{{asset('images/logo.jpeg')}}" alt="" class="logo"/>
-                    </div>
-
-                    <div>
-                        <button type="button" class="dropbtn border rounded-md border-gray-400 flex w-100 items-center justify-between pl-2 pr-2" onclick="toggleDropdown()">Select Payment Method <x-zondicon-cheveron-down class="w-4"/></button>
-                        <div class="border rounded-md border-gray-400 justify-between mt-1" id="dropdown-content" style="display:none;"> 
-                            <a class="text-center hover:bg-zinc-300 hover:text-white border border-black items-center shadow-md shadow-black h-10 w-100 m-2 mt-3 mb-3 pt-1" href="#" onclick="showPaypal()">PayPal</a>
-                            <a class="text-center hover:bg-zinc-300 hover:text-white border border-black items-center shadow-md shadow-black h-10 w-100 m-2 mt-3 mb-3 pt-1" href="#" onclick="showCard()">Card</a>
-                        
-                        </div>
-                    </div>
-
-                    <div id="paypal">
-                        @include('checkout.Body-checkout-paypal')
-                    </div>
-
-                    <div id="card" style="display:none;">
-                        @include('checkout.Body-checkout-card')
-                    </div>
-
-                    <div class="form-group mt-10  bg-slate-500 p-3">
-                        <label>Total Amount</label>
-                        <div class="items-center">
+                    <div class="form-group  p-3 ring-2 ring-white text-black">
+                        <label class="text-white">Total Amount</label>
+                        <div>
                             <span class="absolute ml-2 mt-4">₱</span>
                             <input 
                                 readonly
                                 id="totalAmount" 
-                                class="w-100 h-8 text-center rounded-md bg-white" 
+                                class="w-100 h-10 text-center rounded-md bg-white border border-slate-500" 
                                 name="amount"
                             />
                         </div>
 
-
-
-
-
-
+                        
 
                         @error('amount')
                             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
                     </div>
                     
+                    <p class="text-center text-white mt-10">Pay with</p>
+
+                    <div class="p-4">
+                        <button type="submit" class="ring-2 rounded-lg w-100 p-10 pt-1 pb-1 text-blue-950 bg-amber-400 hover:bg-amber-500 ring-white hover:text-white"><i class="fa-brands fa-cc-paypal"></i><span class="ml-1 text-md">PayPal</span></button>
+                        <button type="submit" class="ring-2 rounded-lg mt-2 w-100 p-10 pt-1 pb-1 text-white bg-slate-500 hover:bg-slate-600 ring-white hover:text-amber-500"><i class="fa-regular fa-credit-card"></i><span class="ml-1 text-md">Debit or Credit</span></button>
+                        <p class="text-center text-sm text-blue-400" style="margin-top: 20px;">Powered by <i class="fa-brands fa-paypal"></i></p>
+                    </div>
+
+                    <div>
+                        <p class="text-center text-red-200 mt-7">Other payment options? No worries, send us a message by clicking the button.</p>
+                        <div class="flex justify-center">
+                            <a href="https://www.facebook.com/thebrownscasita" target="blank" class="bg-blue-500 text-white p-10 pt-1 pb-1 rounded-xl mt-4 hover:bg-blue-600">Message Us</a>
+                        </div>
+                    </div>
+                    
                 </div>
-                <button type="submit" class="float-right mt-10 shadow-md shadow-slate-100 hover:shadow-md mm:ml-3 p-5 pt-2 pb-2 bg-blue-600 hover:bg-white hover:text-black hover:shadow-black text-white rounded-md">Book Now</button>
+                
             </div>  
         </div>
+        
+        <script>
+            // Disable form submission on Enter key press
+            document.addEventListener("DOMContentLoaded", function() {
+                var form = document.querySelector("#form1");
+                form.addEventListener("keydown", function(event) {
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                    }
+                });
+            });
+        </script>
+
     </form>
 
 @endforeach

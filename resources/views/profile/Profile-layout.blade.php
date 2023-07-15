@@ -12,101 +12,82 @@
     <script src="https://kit.fontawesome.com/12e77b0106.js" crossorigin="anonymous"></script>
 
     <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
+    <style>
+
+        @keyframes slideIn {
+            from {
+                right: -100%;
+            }
+            to {
+                right: 0%;
+            }
+        }
+        
+        @keyframes slideOut {
+            from {
+                right: 0%;
+            }
+            to {
+                right: -100%;
+            }
+        }
+        
+        .slide-enter {
+            animation: slideIn .5s forwards;
+        }
+        
+        .slide-exit {
+            animation: slideOut .5s forwards;
+        }
+    </style>
   
     
 
 </head>
 <body>
 
-    <x-flash-message/>
 
-    <div class="block 4m:grid 4m:grid-cols-4 divide-x h-screen">
-        <div class="bg-slate-900 text-white 4m:block overflow-auto">
-            <div class="flex p-2 sms:p-10 pt-10 pb-10 4m:justify-center llll:justify-normal justify-between">
-                <div class="flex items-center">
-                    @if (Auth::check() && Auth::user()->logo)
-                      <a href="/">
-                        <img onclick="windo" class="rounded-full bg-white h-50 w-50.1 mr-2 4m:mr-0 llll:mr-2 object-fit-cover" src="{{ asset('storage/' . Auth::user()->logo) }}" alt="Logo" class="logo"/>
-                      </a>
-                    @else
-                        <a href="/"><img class="rounded-full bg-white h-50 w-50.1 mr-2 4m:mr-0 llll:mr-2" src="{{ asset('images/photo17.png') }}" alt="Logo" class="logo"/></a>
-                    @endif
-                    <p class="text-xl font-light 4m:hidden llll:block">Hello, {{ Auth::user()->first_name }}</p>
-                </div>
-        
-        
-                <li class="4m:hidden list-none">
-                    <button id="burger" class="navbar-burger text-slate-300 border border-slate-300 focus:text-white focus:border-white p-1 ms:hidden">
-                        <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
-                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
-                        </svg>
-                    </button>
-                    
-                    <div id="menu" class="m-8 mt-2 w-170 absolute hidden">
-                        <div class="navbar-menu-content">
-                            <ul class="block rounded-lg bg-zinc-500 justify-center pl-3 pt-2 pb-10">
-                                <li class="flex p-2 hover:bg-slate-700"><a href="/my/profile" class="flex"><x-zondicon-book-reference class="w-4"/><p class="font-light ml-1">My Bookings</p></a></li>
-                                <li class="flex p-2 hover:bg-slate-700"><a href="/my/profile/edit" class="flex"><x-zondicon-cog class="w-4"/><p class="font-light ml-2">Edit Profile</p></a></li>
-                                <li class="flex p-2 hover:bg-slate-700"><a href="/message" class="flex"><x-zondicon-conversation class="w-4"/><p class="font-light ml-1">Message</p></a></li>
-                                <li class="flex p-2 hover:bg-slate-700"><a href="/my/profile/feedback" class="flex"><x-zondicon-thumbs-up class="w-4"/><p class="font-light ml-1">Feedback</p></a></li>
-                                <li class="flex p-2 hover:bg-slate-700 mt-6"><a href="/" class="flex"><x-zondicon-store-front class="w-4"/><p class="font-light ml-1">Home</p></a></li>
-                                
-                                <form class="inline" method="POST" action="/logout">
-                                    @csrf
-                                    <button type="submit" class="flex ml-3" onclick="return confirm('You are trying to logout. Do you want to continue?')"> 
-                                        <x-zondicon-arrow-thick-right class="w-3 mr-2 mt-1"/>Logout
-                                    </button>
-                                </form>
-
-                            </ul>
-                        </div
-                    </div>
-                </li>
-        
+    <div class="1000:grid 1000:grid-cols-4 divide-x ring-2 h-screen overflow-hidden">
+        <div class="hidden bg-slate-900 text-white 4m:block 1000:h-screen overflow-auto">
+            <div class="hidden 1000:flex justify-center mt-10">
+                <a href="/home"><img src="{{ asset('images/tbc.png')}}" class="w-20 h-20 rounded-full"/></a>
             </div>
-        
-            <hr class="hidden 4m:block"/>
+
+            <div class="flex justify-center">
+                <div class="flex 1000:pt-10 1000:pb-0 4m:justify-center llll:justify-normal justify-between">
+                    <div class="hidden 1000:block p-10 pt-0">
+                        <div class="ring-2 p-10 rounded-xl">
+                            @if (Auth::check() && Auth::user()->logo)
+                            <a href="/" class="flex justify-center">
+                                <img onclick="windo" class="ring-2 rounded-full bg-white h-50 w-50.1  4m:mr-0 object-fit-cover" src="{{ asset('storage/' . Auth::user()->logo) }}" alt="Logo" class="logo"/>
+                            </a>
+                            @else
+                                <a class="flex justify-center" href="/"><img class="rounded-full bg-white h-50 w-50.1" src="{{ asset('images/photo17.png') }}" alt="Logo" class="logo"/></a>
+                            @endif
+                            <p class="mt-4 text-center text-xl font-light llll:block">Hello, {{ Auth::user()->first_name }}</p>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            <ul class="hidden pt-10 4m:block">
-                <li class="p-2 mb-2 hover:bg-slate-700"><a href="/my/profile" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-book-reference class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">My Bookings</p></a></li>
-                <li class="p-2 mb-2 hover:bg-slate-700"><a href="/my/profile/edit" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-cog class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Edit Profile</p></a></li>
-                <li class="p-2 mb-2 hover:bg-slate-700"><a href="/message" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-conversation class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Message</p></a></li>
-                <li class="p-2 mb-2 hover:bg-slate-700"><a href="/my/profile/feedback" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-thumbs-up class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Feedback</p></a></li>
-                <li class="p-2 mb-2 hover:bg-slate-700 mt-20"><a href="/" class="flex text-xl justify-center llll:justify-normal"><x-zondicon-store-front class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Home</p></a></li>
-                <form class="inline" method="POST" action="/logout">
-                    @csrf
-                    <button type="submit" onclick="return confirm('You are trying to logout. Do you want to continue?')" class="p-2 mb-2 hover:bg-slate-700 cursor-pointer w-100"><a class="flex text-xl justify-center llll:justify-normal"><x-zondicon-arrow-thick-right class="w-4 llll:mr-6 llll:ml-4"/><p class="font-light hidden llll:block">Logout</p></a></button>
-                </form>
-        
+            <ul class="hidden 1000:flex justify-center">
+                <div class="w-60">
+                    <li class="p-2 mb-2 hover:bg-slate-700"><a href="/my/profile" class="flex text-xl justify-center llll:justify-normal"><p class="font-light">My Bookings</p></a></li>
+                    <li class="p-2 mb-2 hover:bg-slate-700"><a href="/my/profile/edit" class="flex text-xl justify-center llll:justify-normal"><p class="font-light">Edit Profile</p></a></li>
+                    <li class="p-2 mb-2 hover:bg-slate-700"><a href="/my/profile/feedback" class="flex text-xl justify-center llll:justify-normal"><p class="font-light">Feedback</p></a></li>
+                </div>
             </ul>
         </div>
 
-        <div class="4m:col-span-3 border border-black">
+        <div class="1000:col-span-3 border border-black">
             @yield('content')
         </div>
 
    </div>
 
-
-
-
-    <script>
-        const burger = document.querySelector('#burger');
-        const menu = document.querySelector('#menu');
-
-        burger.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-        });
-
-        document.addEventListener('click', (event) => {
-        const isClickInsideMenu = menu.contains(event.target);
-        const isClickOnBurger = event.target.closest('#burger');
-
-        if (!isClickInsideMenu && !isClickOnBurger) {
-            menu.classList.add('hidden');
-        }
-        });
-    </script>
 </body>
 </html>
 

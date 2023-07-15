@@ -6,18 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     <title>TBC Facilities</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <script src="//unpkg.com/alpinejs" defer></script>
+
+    <style>
+        body {
+      font-family: "Work Sans", sans-serif;
+    }
+    </style>
     
 </head>
 <body>
     <x-flash-message/>
-    @include('facility.Facility-header')
+    @include('components.Nav')
     @include('facility.Facility-body')
-    @include('facility.Facility-footer')
+    @include('components.Footer')
     <script src="https://kit.fontawesome.com/12e77b0106.js" crossorigin="anonymous"></script>
 
 
@@ -27,5 +36,7 @@
           window.open(url, "_blank");
         }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
 </body>
 </html>

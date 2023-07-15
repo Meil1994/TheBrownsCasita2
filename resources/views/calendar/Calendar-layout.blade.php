@@ -6,9 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     <title>TBC Calendar</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap"
+    rel="stylesheet"
+  />
     <script src="https://kit.fontawesome.com/12e77b0106.js" crossorigin="anonymous"></script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
@@ -20,6 +24,10 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 
     <style>
+        body {
+            font-family: "Work Sans", sans-serif;
+        }
+
         .ui-datepicker{
             margin-top: 10px;
             padding: 30px;
@@ -55,10 +63,11 @@
 </head>
 <body>
     <x-flash-message/>
+    <x-flash-error/>
     
     @include('calendar.Calendar-header')
-    @include('calendar.Calendar-body')
-    @include('calendar.Calendar-footer')
+    @include('calendar.Calendar-body-price')
+    @include('components.Footer')
 
     <script>
         $(document).ready(function() {
@@ -146,6 +155,9 @@
       window.open(url, "_blank");
     }
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
 
 </body>
 </html>

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('email');
             $table->longText('message');
+            $table->string('status')->default('New');
             $table->timestamps();
         });
     }

@@ -1,5 +1,4 @@
-@include('home-components.Home-body-opening')
+
 @include('home-components.Home-body-offers')
 @include('home-components.Home-body-feedback')
 @include('home-components.Home-body-price')
-@include('home-components.Home-body-number')

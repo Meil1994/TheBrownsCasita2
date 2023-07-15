@@ -1,0 +1,45 @@
+.border-b-2 {
+    transition: transform 0.3s ease-in-out;
+}
+
+.border-b-2:hover {
+    transform: translateY(-30%);
+}
+
+.float-in-from-bottom {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .float-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @keyframes slideIn {
+    from {
+        right: -100%;
+    }
+    to {
+        right: 0%;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        right: 0%;
+    }
+    to {
+        right: -100%;
+    }
+}
+
+.slide-enter {
+    animation: slideIn .5s forwards;
+}
+
+.slide-exit {
+    animation: slideOut .5s forwards;
+}
+

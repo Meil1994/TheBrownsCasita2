@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Payment;
 use App\Models\Discount;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CheckoutController;
 
 class CheckoutController extends Controller
@@ -20,26 +22,13 @@ class CheckoutController extends Controller
         return view('checkout.Checkout-layout', compact('checkin', 'checkout', 'guests', 'discounts'));
     }
 
-    public function book(Request $request) {
-        $formFields = $request->validate([
-            'checkin_date' => 'required',
-            'checkout_date' => 'required',
-            'total_days' => 'required',
-            'guests' => 'required',
-            'discount' => 'sometimes',
-            'note' => 'sometimes',
-            'amount' => 'required'
-        ]);
+    public function isFirstTimeBooker()
+{
+    $userId = Auth::id(); // Assuming you have authentication and can access the user's ID
+    $paymentCount = Payment::where('user_id', $userId)->count();
 
-        $formFields['user_id'] = auth()->id();
-
-        Booking::create($formFields);
-        return redirect('/booking/success');
-    }
-
-    public function success() {
-        return view('checkout.success');
-    }
+    return response()->json(['isFirstTimeBooker' => $paymentCount === 0]);
+}
 
 }
 

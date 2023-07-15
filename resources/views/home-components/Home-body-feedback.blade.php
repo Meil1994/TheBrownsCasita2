@@ -1,7 +1,6 @@
 <div class="tracking-2 bg-zinc-500 pb-10">
     <div class="text-center pt-1">
-        <p class="text-blue-200 text-2xl font-light mt-10 l:mt-10">Feedback</p>
-        <h1 class="text-4xl text-white">What do our customers say?</h1>
+        <h1 class="text-3xl text-white mt-10">Read real reviews <a href="https://www.airbnb.com/rooms/612084400424016037?fbclid=IwAR2TX1VQfwZTEGdRsQMBCi8b2d7dmbNcj72-eTJmX7Enx5EQswhHOauORjw&source_impression_id=p3_1688924575_3DK3uGmDA7zE5KgU" target="blank" class="text-blue-300 hover:text-blue-400">here</a>..</h1>
     </div>
     <div class="text-white block p-2 ms:flex ms:justify-evenly l:mt-50 mm:p-10 m:p-100 m:pb-0 m:pt-10 l:pt-0 text-center">
         <div class="mt-2 p-1 w-100 ml-auto mr-auto mmmm:w-500 l:m-2 ms:mt-10">

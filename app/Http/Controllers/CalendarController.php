@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Payment;
 use App\Models\Discount;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
@@ -14,13 +15,14 @@ class CalendarController extends Controller
         $discounts = Discount::all();
         
         $events = array();
-        $bookings = Booking::all();
-        foreach($bookings as $booking) {
-            $events[]= [
+        $bookings = Payment::all();
+        foreach ($bookings as $booking) {
+            $endDate = date('Y-m-d', strtotime('-1 day', strtotime($booking->checkout_date)));
+        
+            $events[] = [
                 'title' => 'Booked',
                 'start' => $booking->checkin_date,
-                'end' => $booking->checkout_date,
-                
+                'end' => $endDate,
             ];
         }
         return view('calendar.Calendar-layout', ['events' => $events], compact('discounts'));

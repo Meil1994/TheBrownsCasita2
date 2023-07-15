@@ -33,4 +33,5 @@ class ContactController extends Controller
         Feedback::create($formFields);
         return redirect('/contact')->with('message', 'Thank you for your feedback!');
     }
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Payment;
 use App\Models\Discount;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class HomeController extends Controller
         $discounts = Discount::all();
 
         $events = array();
-        $bookings = Booking::all();
+        $bookings = Payment::all();
         foreach($bookings as $booking) {
             $events[]= [
                 'title' => 'Booked',
@@ -39,7 +40,15 @@ class HomeController extends Controller
 
         Feedback::create($formFields);
         return redirect('/')->with('message', 'Thank you for your feedback!');
+    } 
+    
+    
+    public function loading()
+    {
+        return view('loading.HomeLoading');
     }
+
+
 
 
 
